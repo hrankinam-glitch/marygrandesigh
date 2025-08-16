@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*.image-header {
+    width: 100%;
+} */
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 120px;
+}
+.menu {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 40%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  pointer-events: none; 
+}
+/* Стили для навигационного меню - изначально прозрачное */
+.navbar {
+    background-color: rgba(0, 0, 0, 0); /* Полная прозрачность */
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(0px);
+}
+
+/* Затемненное состояние при прокрутке (70% прозрачности) */
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.7); /* 70% непрозрачности */
+    backdrop-filter: blur(3px);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: red;
+}
+
+/* Основные стили для навигационных ссылок */
+.nav-links {
+    display: flex;
+    list-style: none;
+    transition: all 0.5s ease;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 18px;
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+.nav-links a:hover {
+    color: red;
+}
+
+/* Стили для бургер-меню */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: red;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Анимация бургер-меню при клике */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+    img {
+    width: 50px;
+    }
+  .lora {
+    white-space: nowrap; /* Запрет переноса строк кроме <br> */
+  }
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 0px;
+        width: 100%;
+        height: calc(100vh - 0px);
+        background-color: rgba(0, 0, 0, 0.9); /* Более темное для мобильных */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        backdrop-filter: blur(5px);
+    }
+
+  .overlay-text {
+    top: 50%;
+  }
+  
+  .pacifico-regular {
+    font-size: 28px;
+  }
+  .montserrat  {
+    font-size:15px;
+  }  
+  .nav-links li {
+        margin: 25px 0;
+        opacity: 0;
+        margin-left: 0;
+    }
+    
+    .burger {
+        display: block;
+    }
+    
+    .navbar.scrolled {
+        padding: 10px 0;
+    }
+}
+
+/* Активация мобильного меню */
+.nav-active {
+    transform: translateX(0) !important;
+}
+
+/* Анимация пунктов меню */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
